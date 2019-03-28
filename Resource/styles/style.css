@@ -1,0 +1,48 @@
+body {
+  background-color: #f2f2f4 !important;
+}
+table {
+  border: 1px solid #c7c7c9;
+}
+header {
+  background-color: #666;
+
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+.panel-default > .panel-heading {
+  font-size: 16px;
+  font-weight: bold;
+}
+nav {
+  float: left;
+  width: 30%;
+  height: 200px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  /*  height: 300px;  only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+thead {
+  background: #08106b;
+  color: white;
+}

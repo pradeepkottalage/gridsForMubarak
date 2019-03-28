@@ -1,0 +1,196 @@
+<div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Heading
+    </div>
+    <div class="panel-body">
+      <strong>Window Title</strong>:<span>value</span>
+      <strong>Atom_type_id</strong>:<span>value</span>
+      <table
+        align="center"
+        st-table="display_records"
+        st-safe-src=""
+        class="table table-striped"
+      >
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Expression</th>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr st-select-row="row">
+            <td>Row 1</td>
+            <td>Row 1</td>
+            <td>
+              Row 1<a type="button" class="btn btn-sm ">
+                <i class="glyphicon  glyphicon-pencil"> </i>
+              </a>
+            </td>
+          </tr>
+          <tr st-select-row="row">
+            <td>Row 2</td>
+            <td>Row 2</td>
+            <td>
+              Row 2<a type="button" class="btn btn-sm ">
+                <i class="glyphicon  glyphicon-pencil"> </i>
+              </a>
+            </td>
+          </tr>
+          <tr st-select-row="row">
+            <td>Row 3</td>
+            <td>Row 3</td>
+            <td>
+              Row 3<a type="button" class="btn btn-sm ">
+                <i class="glyphicon  glyphicon-pencil"> </i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Form Titles :
+    </div>
+    <div class="panel-body">
+      <ul class="nav nav-tabs">
+        <li
+          ng-repeat="formData in displayData.FormTitles"
+          role="presentation"
+          ng-click="setTab(formData.id)"
+          ng-class="tab == formData.id ? 'active noclick': ''"
+        >
+          <a>{{ formData.formName }}</a>
+        </li>
+      </ul>
+      <div style="min-height:200px;">
+        <table
+          ng-repeat="formData in displayData.FormTitles"
+          align="center"
+          ng-if="tab == formData.id"
+          st-table=""
+          class="table table-striped"
+        >
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Expression</th>
+              <th>Title</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr st-select-row="row" ng-repeat="data in formData.data">
+              <td>{{ data.id }}</td>
+              <td>{{ data.expression }}</td>
+
+              <td ng-hide="data.edit == true">
+                {{ data.Title
+                }}<a
+                  type="button"
+                  class="btn btn-sm "
+                  ng-click="editTitle(data)"
+                >
+                  <i class="glyphicon  glyphicon-pencil"> </i>
+                </a>
+              </td>
+              <td ng-if="data.edit == true">
+                <textarea rows="2" ng-model="data.Title"></textarea>
+                <div>
+                  <button type="button" class="btn btn-primary">Save</button>
+                  <button
+                    type="button"
+                    class="btn btn-light"
+                    ng-click="cancelEdit(data)"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">Clusters</div>
+    <div class="panel-body">
+      <table
+        align="center"
+        st-table="display_records"
+        st-safe-src=""
+        class="table table-striped"
+      >
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Clusters</th>
+            <th>Image</th>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr st-select-row="row" ng-repeat="cluster in displayData.Clusters">
+            <td>{{ cluster.id }}</td>
+            <td>{{ cluster.Cluster }}</td>
+            <td>
+              <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-picture"></span> Picture
+              </button>
+            </td>
+
+            <td>
+              {{ cluster.Title
+              }}<a type="button" class="btn btn-sm ">
+                <i class="glyphicon  glyphicon-pencil"> </i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">Templates</div>
+    <div class="panel-body">
+      <table
+        align="center"
+        st-table="display_records"
+        st-safe-src=""
+        class="table table-striped"
+      >
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Images</th>
+            <th>Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr st-select-row="row" ng-repeat="template in displayData.Templates">
+            <td>{{ template.id }}</td>
+            <td>
+              <ul class="list-unstyled">
+                <li ng-repeat="img in template.Images ">
+                  <button type="button" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-picture"></span> Picture
+                  </button>
+                </li>
+              </ul>
+            </td>
+            <td>
+              {{ template.Title
+              }}<a type="button" class="btn btn-sm ">
+                <i class="glyphicon  glyphicon-pencil"> </i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

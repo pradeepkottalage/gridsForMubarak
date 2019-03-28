@@ -1,0 +1,41 @@
+<div>
+  <table
+    st-table="display_records"
+    st-safe-src="mockData"
+    class="table table-striped"
+  >
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Window_title</th>
+        <th>Atom_type_id</th>
+        <th>No of Form_titles</th>
+        <th>Total No of clusters</th>
+        <th>Total Labels</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr st-select-row="row" ng-repeat="row in display_records">
+        <td>{{ row.id }}</td>
+        <td>{{ row.Window_title }}</td>
+        <td>{{ row.Atom_type_id }}</td>
+        <td>{{ row.Form_titles }}</td>
+        <td>{{ row.Clusters }}</td>
+        <td>{{ row.TotalLabels }}</td>
+        <td>
+          <a type="button" class="btn btn-sm " ng-click="rowEdit(row)">
+            <i class="glyphicon  glyphicon-pencil"> </i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+    <!-- <tfoot>
+      <tr>
+        <td colspan="12" class="text-center">
+          <div st-pagination="" st-items-by-page="itemsByPage"></div>
+        </td>
+      </tr>
+    </tfoot> -->
+  </table>
+</div>
